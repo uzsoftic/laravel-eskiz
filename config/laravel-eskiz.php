@@ -7,10 +7,10 @@ return [
 
     // ROUTE CONFIG
     'middleware' => 'web',
-    'route_prefix' => '/eskiz-sms/',
+    'route_prefix' => '/eskizsms/',
 
     'admin_middleware' => 'admin',
-    'admin_route_prefix' => '/admin/eskiz-sms/panel',
+    'admin_route_prefix' => '/admin/eskizsms/',
 
     // API
     'protocol' => 'https://',

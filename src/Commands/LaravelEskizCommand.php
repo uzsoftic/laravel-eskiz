@@ -13,7 +13,7 @@ class LaravelEskizCommand extends Command
     public function handle(): bool
     {
         try {
-            $this->success('Command is working');
+            $this->info('Command is working');
         }catch (\Exception $e){
             $this->error('Error: '.$e->getMessage());
         }
