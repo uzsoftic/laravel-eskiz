@@ -1,0 +1,62 @@
+{
+    "name": "orchestra/workbench",
+    "description": "Workbench Companion for Laravel Packages Development",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mior Muhammad Zaki",
+            "email": "crynobone@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Orchestra\\Workbench\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Orchestra\\Workbench\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\": "workbench/database/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "composer-runtime-api": "^2.2",
+        "illuminate/console": "^9.52.15 || ^10.17.0",
+        "illuminate/support": "^9.52.15 || ^10.17.0",
+        "orchestra/testbench-core": "^7.29.0 || ^8.9.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.21",
+        "laravel/framework": "^9.52.15 || ^10.17.0",
+        "laravel/pint": "^1.4",
+        "mockery/mockery": "^1.5.1",
+        "orchestra/canvas": "^7.6 || ^8.2",
+        "phpstan/phpstan": "^1.10.7",
+        "phpunit/phpunit": "^9.6"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build",
+        "serve": "@php vendor/bin/testbench serve",
+        "lint": [
+            "@php vendor/bin/pint",
+            "@php vendor/bin/phpstan analyse"
+        ],
+        "test": "@php vendor/bin/phpunit"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}

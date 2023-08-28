@@ -9,6 +9,7 @@
             "homepage": "https://softic.uz"
         }
     ],
+    "minimum-stability": "dev",
     "homepage": "https://github.com/uzsoftic/laravel-eskiz",
     "keywords": ["Laravel", "LaravelEskiz"],
     "require": {

@@ -4,5 +4,15 @@ namespace Uzsoftic\LaravelEskiz;
 
 class LaravelEskiz
 {
-    // Build wonderful things
+    public function panel(){
+
+    }
+
+    public function config_page(){
+
+    }
+
+    public function sms_page(){
+
+    }
 }
