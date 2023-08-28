@@ -75,6 +75,11 @@ class LaravelEskizServiceProvider extends ServiceProvider
             __DIR__.'/../resources/assets' => public_path('vendor/laravel-eskiz'),
         ], 'laravel-eskiz.assets');
 
+        // Migrations
+        $this->publishes([
+            __DIR__.'/../database/migrations' => base_path('database/migrations'),
+        ], 'laravel-eskiz.migrations');
+
         // Publishing the translation files.
         /*$this->publishes([
             __DIR__.'/../resources/lang' => resource_path('lang/vendor/uzsoftic'),
