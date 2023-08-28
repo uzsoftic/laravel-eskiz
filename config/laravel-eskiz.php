@@ -9,7 +9,7 @@ return [
     'middleware' => 'web',
     'route_prefix' => '/eskizsms/',
 
-    'admin_middleware' => 'admin',
+    'admin_middleware' => 'web',
     'admin_route_prefix' => '/admin/eskizsms/',
 
     // API
