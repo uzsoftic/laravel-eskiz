@@ -26,12 +26,44 @@ class LaravelEskizController
     }
 
     public function config(Request $request){
+        if ($request->has('submit')){
+            if(EskizConfig::query()->exists()){
+                $eskiz = EskizConfig::first();
+                $eskiz->server_host = $request->server_host;
+                $eskiz->server_protocol = $request->server_protocol;
+                $eskiz->alpha_name = $request->alpha_name;
+                $eskiz->api_login = $request->api_login;
+                $eskiz->api_password = $request->api_password;
+                $eskiz->sms_email = $request->sms_email;
+                $eskiz->sms_password = $request->sms_password;
+            }else{
+                $eskiz = new EskizConfig;
+                $eskiz->server_host = $request->server_host;
+                $eskiz->server_protocol = $request->server_protocol;
+                $eskiz->alpha_name = $request->alpha_name;
+                $eskiz->api_login = $request->api_login;
+                $eskiz->api_password = $request->api_password;
+                $eskiz->sms_email = $request->sms_email;
+                $eskiz->sms_password = $request->sms_password;
+            }
+            if ($eskiz->save()){
+                //dump('success');
+            }else{
+                //dump('error');
+            }
+        }
+
         $config = EskizConfig::query()->first();
         return view('vendor.laravel-eskiz.config', compact('config'));
     }
 
     public function sender(Request $request){
-        return view('vendor.laravel-eskiz.sender');
+        if(EskizConfig::query()->exists()){
+
+            return view('vendor.laravel-eskiz.sender');
+        }else{
+            return redirect()->route('eskizsms.config')->withError('Token not generated');
+        }
     }
 
 }
