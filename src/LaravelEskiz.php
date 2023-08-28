@@ -4,6 +4,9 @@ namespace Uzsoftic\LaravelEskiz;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
 use Psr\Http\Message\ResponseInterface;
 use Uzsoftic\LaravelEskiz\Models\EskizConfig;
@@ -14,42 +17,42 @@ class LaravelEskiz
     /**
      * Send request to intend API
      *
-     * @param string $method , POST/Get
+     * @param string $method , POST/GET
      * @param string $url , Method url
      * @param array $data
-     * @param null $auth_token , Need for intend member request
+     * @param array $header
      *
-     * @return ResponseInterface JSON Response
+     * @return Application|ResponseFactory|\Illuminate\Foundation\Application|Response Array Response
      * @throws Exception
      */
-    private function sendRequest(string $method, string $url, array $data = [], $header = []): ResponseInterface
+    private function sendRequest(string $method, string $url, array $data = [], $header = []): Application|ResponseFactory|\Illuminate\Foundation\Application|Response
     {
         try {
             $client = new Client([
-                'base_uri' => $this->getConfig()->protocol.$this->getConfig()->host,
+                'base_uri' => $this->getConfig()->server_protocol.$this->getConfig()->server_host,
                 'exceptions' => false
             ]);
 
             $request_headers = [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
-                'api-key' => $this->token,
-                'Accept-Language' => $this->lang
+                'api-key' => $this->getConfig()->token,
             ];
 
-            if ($auth_token)
+            /*if ($auth_token)
                 $request_headers['Authorization'] = "Bearer " . $auth_token;
             else
-                $request_headers['Authorization'] = "Bearer " . $this->token;
+                $request_headers['Authorization'] = "Bearer " . $this->token;*/
 
-            return $client->request($method, $url,
+            $data = $client->request($method, $url,
                 [
                     'headers' => $request_headers,
                     'body' => json_encode($data)
                 ]
             );
+            return $this->getResponse(true, (array)$data->getBody()->getContents(), "Success");
         } catch (ClientException $e) {
-            $this->getResponse(false, [], $e->getResponse());
+            return $this->getResponse(false, $e->getResponse()->getBody()->getContents(), $e->getResponse());
         }
     }
 

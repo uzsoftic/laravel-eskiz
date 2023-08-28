@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('eskiz_config', function (Blueprint $table) {
             $table->id();
-            $table->string('host')->nullable();
-            $table->string('protocol')->nullable();
+            $table->string('server_host')->nullable();
+            $table->string('server_protocol')->nullable();
             $table->string('alpha_name')->nullable();
             $table->string('alpha_number')->nullable();
             $table->string('api_login')->nullable();

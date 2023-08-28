@@ -36,6 +36,12 @@ After installation, we need to migrate command.
 ```shell
 php artisan migrate
 ```
+```shell
+php artisan migrate --path=/database/migrations/2023_08_26_190625_create_eskiz_config_table.php
+```
+```shell
+php artisan migrate --path=/database/migrations/2023_08_26_190642_create_eskiz_sms_table.php
+```
 
 ## Usage
 
