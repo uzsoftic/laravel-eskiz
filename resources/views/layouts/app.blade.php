@@ -24,7 +24,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Your Website 2018</small>
+                <small><a href="//github.com/uzsoftic">@UzSoftic</a> - 2023</small>
             </div>
         </div>
     </footer>
