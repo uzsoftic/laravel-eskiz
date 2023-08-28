@@ -4,10 +4,10 @@ namespace Uzsoftic\LaravelEskiz;
 
 use Uzsoftic\LaravelEskiz\Models\EskizConfig;
 use Uzsoftic\LaravelEskiz\Models\EskizSms;
-use App\Http\Controllers\Controller;
+//use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LaravelEskizController extends Controller
+class LaravelEskizController
 {
     public function dashboard(Request $request){
         $dashboard = (object)[
@@ -17,7 +17,7 @@ class LaravelEskizController extends Controller
             'sms_count_monthly' => '0',
             'eskiz_alpha_name' => 'ALPHA NAME',
         ];
-        return view('vendor.laravel-eskiz.dashboard', compact($dashboard));
+        return view('laravel-eskiz::dashboard', compact($dashboard));
     }
 
     public function listing(Request $request){
