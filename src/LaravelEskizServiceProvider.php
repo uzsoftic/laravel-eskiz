@@ -19,10 +19,6 @@ class LaravelEskizServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 
-        $this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/laravel-eskiz'),
-        ], 'laravel-eskiz.public');
-
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
@@ -78,7 +74,7 @@ class LaravelEskizServiceProvider extends ServiceProvider
 
         // Migrations
         $this->publishes([
-            __DIR__.'/../database/migrations' => base_path('database/migrations'),
+            __DIR__.'/../database/migrations' => database_path('migrations'),
         ], 'laravel-eskiz.migrations');
 
         // Publishing the translation files.

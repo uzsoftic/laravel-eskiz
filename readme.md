@@ -29,19 +29,12 @@ Uzsoftic\LaravelEskiz\LaravelEskizServiceProvider::class,
 Or
 
 ```shell
-php artisan vendor:publish --provider=Uzsoftic\LaravelEskiz\LaravelEskizServiceProvider
-```
-```shell
 php artisan vendor:publish --provider=Uzsoftic\LaravelEskiz\LaravelEskizServiceProvider --tag=laravel-eskiz.config --tag=laravel-eskiz.views --tag=laravel.eskiz.public
 ```
 
 After installation, we need to migrate command.
 ```shell
 php artisan migrate
-```
-
-```shell
-php artisan vendor:publish --provider 
 ```
 
 ## Usage

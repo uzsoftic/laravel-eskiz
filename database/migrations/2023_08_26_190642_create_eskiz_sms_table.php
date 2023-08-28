@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('eskiz_sms', function (Blueprint $table) {
             $table->id();
+            $table->string('phone')->nullable();
+            $table->text('text')->nullable();
             $table->timestamps();
         });
     }

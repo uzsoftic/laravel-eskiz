@@ -8,4 +8,8 @@ return [
     // ROUTE CONFIG
     'admin_middleware' => 'auth',
     'admin_route' => '/admin/eskiz-sms/panel',
+
+    // API
+    'protocol' => 'https://',
+    'host' => 'notify.eskiz.uz',
 ];

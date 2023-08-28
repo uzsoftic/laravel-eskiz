@@ -15,7 +15,7 @@ class LaravelEskizCommand extends Command
         try {
             $this->success('Command is working');
         }catch (\Exception $e){
-            $this->danger('Error: '.$e->getMessage());
+            $this->error('Error: '.$e->getMessage());
         }
 
         return true;

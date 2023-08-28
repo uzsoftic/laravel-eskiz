@@ -1,6 +1,6 @@
 <?php
 
-namespace Uzsoftic\LaravelEskiz;
+namespace Uzsoftic\LaravelEskiz\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
