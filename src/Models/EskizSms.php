@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class EskizSms extends Model
 {
     use HasFactory;
+
+    protected $table = 'eskiz_sms';
 }

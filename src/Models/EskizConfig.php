@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class EskizConfig extends Model
 {
     use HasFactory;
+
+    protected $table = 'eskiz_config';
 }

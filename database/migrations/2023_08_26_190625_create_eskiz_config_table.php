@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('api_login')->nullable();
             $table->string('api_password')->nullable();
             $table->string('sms_email')->nullable();
-            $table->string('api_password')->nullable();
+            $table->string('sms_password')->nullable();
             $table->text('token')->nullable();
             $table->dateTime('token_updated_at')->nullable();
             $table->timestamps();
