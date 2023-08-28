@@ -3,6 +3,7 @@
 namespace Uzsoftic\LaravelEskiz;
 
 use Illuminate\Support\ServiceProvider;
+use Uzsoftic\LaravelEskiz\Commands\LaravelEskizCommand;
 
 class LaravelEskizServiceProvider extends ServiceProvider
 {
@@ -86,6 +87,8 @@ class LaravelEskizServiceProvider extends ServiceProvider
         ], 'laravel-eskiz.lang');*/
 
         // Registering package commands.
-        // $this->commands([]);
+        $this->commands([
+            LaravelEskizCommand::class
+        ]);
     }
 }

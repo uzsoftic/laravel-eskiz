@@ -10,10 +10,15 @@ class LaravelEskizCommand extends Command
 
     protected $description = 'Eskiz SMS Generate Token';
 
-    public function handle(): int
+    public function handle(): bool
     {
-        $this->success('Command is working');
-        return self::SUCCESS;
+        try {
+            $this->success('Command is working');
+        }catch (\Exception $e){
+            $this->danger('Error: '.$e->getMessage());
+        }
+
+        return true;
     }
 
 }
