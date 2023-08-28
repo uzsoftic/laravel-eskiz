@@ -6,8 +6,11 @@ return [
     'title' => "Eskiz SMS",
 
     // ROUTE CONFIG
-    'admin_middleware' => 'auth',
-    'admin_route' => '/admin/eskiz-sms/panel',
+    'middleware' => 'web',
+    'route_prefix' => '/eskiz-sms/',
+
+    'admin_middleware' => 'admin',
+    'admin_route_prefix' => '/admin/eskiz-sms/panel',
 
     // API
     'protocol' => 'https://',
