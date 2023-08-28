@@ -13,9 +13,9 @@
     "homepage": "https://github.com/uzsoftic/laravel-eskiz",
     "keywords": ["Laravel", "LaravelEskiz"],
     "require": {
-        "illuminate/support": "~9"
     },
     "require-dev": {
+        "illuminate/support": "~9",
         "phpunit/phpunit": "~9.0",
         "orchestra/testbench": "~7"
     },

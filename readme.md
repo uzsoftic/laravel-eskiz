@@ -26,13 +26,32 @@ Next, we need to add package service provider to config/app.php inside providers
 ``` php
 Uzsoftic\LaravelEskiz\LaravelEskizServiceProvider::class,
 ```
+Or
 
-## Usage
+```shell
+php artisan vendor:publish --provider=Uzsoftic\LaravelEskiz\LaravelEskizServiceProvider
+```
+```shell
+php artisan vendor:publish --provider=Uzsoftic\LaravelEskiz --tag=laravel-eskiz
+```
 
 After installation, we need to migrate command.
 ```shell
 php artisan migrate
 ```
+
+```shell
+php artisan vendor:publish --provider 
+```
+
+## Usage
+
+Generate Eskiz SMS Token
+```shell
+php artisan laravel-eskiz:generate
+```
+
+
 
 ## Change log
 

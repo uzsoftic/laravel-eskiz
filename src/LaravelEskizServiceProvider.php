@@ -14,9 +14,13 @@ class LaravelEskizServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'uzsoftic');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'uzsoftic');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'uzsoftic');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        $this->publishes([
+            __DIR__.'/../resources/assets' => public_path('vendor/laravel-eskiz'),
+        ], 'laravel-eskiz.public');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -62,14 +66,14 @@ class LaravelEskizServiceProvider extends ServiceProvider
         ], 'laravel-eskiz.config');
 
         // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/uzsoftic'),
-        ], 'laravel-eskiz.views');*/
+        $this->publishes([
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/laravel-eskiz'),
+        ], 'laravel-eskiz.views');
 
         // Publishing assets.
-        /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/uzsoftic'),
-        ], 'laravel-eskiz.assets');*/
+        $this->publishes([
+            __DIR__.'/../resources/assets' => public_path('vendor/laravel-eskiz'),
+        ], 'laravel-eskiz.assets');
 
         // Publishing the translation files.
         /*$this->publishes([
