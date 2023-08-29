@@ -5,7 +5,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
+                <a href="#">Eskiz SMS</a>
             </li>
             <li class="breadcrumb-item active">SMS Sender</li>
         </ol>
@@ -18,7 +18,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <form method="POST" action="{{ url()->current() }}">
+                        <form method="POST" action="{{ route('eskizsms.sender.action') }}">
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-lg-3 col-md-4 col-5">
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="form-group col-lg-9 col-md-8 col-7">
                                     <label for="phone_number">Number</label>
-                                    <input type="text" name="phone_number" class="form-control" id="phone_number"
+                                    <input type="text" name="phone_number" id="phone_number" class="form-control"
                                            placeholder="(90) 123 45 67" value="">
                                 </div>
                             </div>

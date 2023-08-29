@@ -8,9 +8,11 @@ Route::name('eskizsms.')->prefix(config('laravel-eskiz.route_prefix'))->group(fu
 });
 
 Route::name('eskizsms.')->prefix(config('laravel-eskiz.admin_route_prefix'))->middleware(config('laravel-eskiz.admin_middleware'))->group(function (){
-    Route::any('/dashboard', [LaravelEskizController::class, 'dashboard'])->name('dashboard');
-    Route::any('/listing', [LaravelEskizController::class, 'listing'])->name('listing');
-    Route::any('/config', [LaravelEskizController::class, 'config'])->name('config');
-    Route::any('/sender', [LaravelEskizController::class, 'sender'])->name('sender');
+    Route::get('/dashboard', [LaravelEskizController::class, 'dashboard'])->name('dashboard');
+    Route::get('/listing', [LaravelEskizController::class, 'listing'])->name('listing');
+    Route::get('/config', [LaravelEskizController::class, 'config'])->name('config');
+    Route::get('/sender', [LaravelEskizController::class, 'sender'])->name('sender');
+    Route::post('/config', [LaravelEskizController::class, 'configUpdate'])->name('config.acton');
+    Route::post('/sender', [LaravelEskizController::class, 'senderSend'])->name('sender.action');
 });
 

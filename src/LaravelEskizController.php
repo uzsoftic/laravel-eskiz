@@ -27,7 +27,20 @@ class LaravelEskizController
         return view('vendor.laravel-eskiz.listing', compact('listing'));
     }
 
-    public function config(Request $request){
+    public function config(){
+        $config = EskizConfig::query()->first();
+        return view('vendor.laravel-eskiz.config', compact('config'));
+    }
+
+    public function sender(){
+        if(EskizConfig::query()->exists()){
+            return view('vendor.laravel-eskiz.sender');
+        }else{
+            return redirect()->route('eskizsms.config')->withError('Token not generated');
+        }
+    }
+
+    public function configUpdate(Request $request){
         if ($request->has('submit')){
             if(EskizConfig::query()->exists()){
                 $eskiz = EskizConfig::first();
@@ -49,17 +62,15 @@ class LaravelEskizController
                 $eskiz->sms_password = $request->sms_password;
             }
             if ($eskiz->save()){
-                //dump('success');
+                return back()->withSuccess('Success');
             }else{
-                //dump('error');
+                return back()->withError('Error');
             }
         }
 
-        $config = EskizConfig::query()->first();
-        return view('vendor.laravel-eskiz.config', compact('config'));
     }
 
-    public function sender(Request $request){
+    public function senderSend(Request $request){
 
         if($request->has('submit')){
             $core = new LaravelEskiz();
@@ -81,11 +92,6 @@ class LaravelEskizController
             }
         }
 
-        if(EskizConfig::query()->exists()){
-            return view('vendor.laravel-eskiz.sender');
-        }else{
-            return redirect()->route('eskizsms.config')->withError('Token not generated');
-        }
     }
 
 }

@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
+                <a href="#">Eskiz SMS</a>
             </li>
             <li class="breadcrumb-item active">Configuration</li>
         </ol>
@@ -15,7 +15,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <form method="POST" action="{{ url()->current() }}">
+                        <form method="POST" action="{{ route('eskizsms.config.action') }}">
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-4">
