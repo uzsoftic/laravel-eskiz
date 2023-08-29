@@ -40,6 +40,6 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.js'></script>
 <script src="{{ assetLocal('vendor/laravel-eskiz/script.js') }}"></script>
-
+@yield('script')
 </body>
 </html>

@@ -10,9 +10,12 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
 use Psr\Http\Message\ResponseInterface;
 use Uzsoftic\LaravelEskiz\Models\EskizConfig;
+use Uzsoftic\LaravelEskiz\Traits\LaravelEskizTrait;
 
 class LaravelEskiz
 {
+
+    use LaravelEskizTrait;
 
     /**
      * Send request to intend API
@@ -56,7 +59,8 @@ class LaravelEskiz
         }
     }
 
-    private function getResponse(bool $status, array $data, string $message = ""){
+    private function getResponse(bool $status, object|array $data, string $message = ""){
+        dd($data);
         return response([
             'status' => $status,
             'data' => $data,
@@ -64,13 +68,7 @@ class LaravelEskiz
         ]);
     }
 
-    private function getConfig(){
-        return Cache::remember('laravel-eskiz-cache', now()->addDay(), function (){
-            return EskizConfig::first();
-        });
-    }
-
-    protected function generateToken(){
+    protected function getToken(){
         $api_login = config('sms.eskiz.settings.api_login');
         $api_password = config('sms.eskiz.settings.api_password');
 
@@ -98,6 +96,94 @@ class LaravelEskiz
     }
 
     protected function updateToken(){
+
+    }
+
+    protected function deleteToken(){
+
+    }
+
+    protected function getUserDetails(){
+
+    }
+
+    protected function createContact(){
+
+    }
+
+    protected function updateContact(){
+
+    }
+
+    protected function getContact(){
+
+    }
+
+    protected function allContact(){
+
+    }
+
+    protected function deleteContact(){
+
+    }
+
+    protected function createTemplate(){
+
+    }
+
+    protected function updateTemplate(){
+
+    }
+
+    protected function allTemplate(){
+
+    }
+
+    protected function deleteTemplate(){
+
+    }
+
+    public function sendSms(int $number, string $message){
+        $form = [
+            'mobile_phone' => $number,
+            'message' => $message,
+            'from' => $this->getConfig()->alpha_name ?? config('laravel-eskiz.default_sender'),
+            'callback_url' => route(config('laravel-eskiz.callback_url')),
+        ];
+        $response = $this->sendRequest('POST', '/message/sms/send', $form);
+        return $this->getResponse(true, $response);
+    }
+
+    public function sendSmsGlobal(int $number, string $message, string $country_code){
+        $form = [
+            'mobile_phone' => $number,
+            'message' => $message,
+            'country_code' => $country_code,
+            'from' => $this->getConfig()->alpha_name ?? config('laravel-eskiz.default_sender'),
+            'callback_url' => route(config('laravel-eskiz.callback_url')),
+            'unicode' => '0'
+        ];
+        $response = $this->sendRequest('POST', '/message/sms/send-global', $form);
+        dd($response);
+    }
+
+    public function sendSmsBatch(){
+
+    }
+
+    public function getDispatchStatus(){
+
+    }
+
+    public function getNick(){
+
+    }
+
+    public function totalSms(){
+
+    }
+
+    public function getLimit(){
 
     }
 

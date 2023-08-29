@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('phone')->nullable();
             $table->text('text')->nullable();
+            $table->integer('area_code')->default('998')->nullable();
+            $table->bigInteger('user_id')->nullable();
+            $table->string('user_ip')->nullable();
+            $table->string('user_agent')->nullable();
             $table->timestamps();
         });
     }

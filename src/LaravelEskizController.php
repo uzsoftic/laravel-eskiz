@@ -4,11 +4,13 @@ namespace Uzsoftic\LaravelEskiz;
 
 use Uzsoftic\LaravelEskiz\Models\EskizConfig;
 use Uzsoftic\LaravelEskiz\Models\EskizSms;
-//use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Uzsoftic\LaravelEskiz\Traits\LaravelEskizTrait;
 
 class LaravelEskizController
 {
+    use LaravelEskizTrait;
+
     public function dashboard(Request $request){
         $dashboard = (object)[
             'sms_count' => '0',
@@ -58,8 +60,28 @@ class LaravelEskizController
     }
 
     public function sender(Request $request){
-        if(EskizConfig::query()->exists()){
 
+        if($request->has('submit')){
+            $core = new LaravelEskiz();
+            if($core->clearPhone($request->area_code.$request->phone_number)){
+                $eskiz = new EskizSms;
+                $eskiz->area_code = $request->area_code;
+                $eskiz->phone = $core->clearPhone($request->area_code.$request->phone_number);
+                $eskiz->text = $request->text;
+                $eskiz->user_id = $request->user_id;
+                $eskiz->user_ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? 'localhost';
+                $eskiz->user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
+                if ($eskiz->save()){
+                    $core->sendSms($eskiz->phone, $eskiz->text);
+                }else{
+                    //dump('error');
+                }
+            }else{
+                //dd('error');
+            }
+        }
+
+        if(EskizConfig::query()->exists()){
             return view('vendor.laravel-eskiz.sender');
         }else{
             return redirect()->route('eskizsms.config')->withError('Token not generated');
