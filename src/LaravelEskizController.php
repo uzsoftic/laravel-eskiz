@@ -23,7 +23,7 @@ class LaravelEskizController
     }
 
     public function listing(Request $request){
-        $listing = EskizSms::query()->paginate(50);
+        $listing = EskizSms::query()->latest()->paginate(50);
         return view('vendor.laravel-eskiz.listing', compact('listing'));
     }
 
@@ -78,12 +78,12 @@ class LaravelEskizController
                 $eskiz = new EskizSms;
                 $eskiz->area_code = $request->area_code;
                 $eskiz->phone = $core->clearPhone($request->area_code.$request->phone_number);
-                $eskiz->text = $request->text;
+                $eskiz->text = $request->message;
                 $eskiz->user_id = $request->user_id;
                 $eskiz->user_ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? 'localhost';
                 $eskiz->user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
                 if ($eskiz->save()){
-                    $core->sendSms($eskiz->phone, $eskiz->text);
+                    $core->sendSms((int)$eskiz->phone, (string)$eskiz->text);
                 }else{
                     //dump('error');
                 }

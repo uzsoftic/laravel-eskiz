@@ -2,6 +2,7 @@
 
 namespace Uzsoftic\LaravelEskiz\Traits;
 
+use Illuminate\Support\Facades\Cache;
 use Uzsoftic\LaravelEskiz\Models\EskizConfig;
 
 trait LaravelEskizTrait
@@ -20,13 +21,13 @@ trait LaravelEskizTrait
         return (int)$generated;
     }
 
-    public function clearPhone($number, $type = 1) :string|null {
+    public function clearPhone($number, $type = 0) :string|null {
         $input = $this->clearPhoneNumber($number);
-        if(isset($input) && $input != NULL){
-            $back = $type == 1 ? '+' : '';
-            $number = $back.substr($input, -12, -9)." (".substr($input, -9, -7).") ".substr($input, -7, -4)." ".substr($input, -4, -2)." ".substr($input, -2);
+        if ($type){
+            return '+'.substr($input, -12, -9)." (".substr($input, -9, -7).") ".substr($input, -7, -4)." ".substr($input, -4, -2)." ".substr($input, -2);
+        }else{
+            return $input;
         }
-        return $number;
     }
 
     private function getConfig(){

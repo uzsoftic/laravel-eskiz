@@ -15,6 +15,6 @@ return [
     // API
     'protocol' => 'https://',
     'host' => 'notify.eskiz.uz',
-    'callback_url' => '',
+    'callback_url' => 'eskizsms.callback',
     'default_sender' => '4546',
 ];

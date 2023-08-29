@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
 use Psr\Http\Message\ResponseInterface;
@@ -95,51 +96,55 @@ class LaravelEskiz
         return $response->getBody()->getContents();
     }
 
-    protected function updateToken(){
+    protected function callback(Request $request){
 
     }
 
-    protected function deleteToken(){
+    public function updateToken(){
 
     }
 
-    protected function getUserDetails(){
+    public function deleteToken(){
 
     }
 
-    protected function createContact(){
+    public function getUserDetails(){
 
     }
 
-    protected function updateContact(){
+    public function createContact(){
 
     }
 
-    protected function getContact(){
+    public function updateContact(){
 
     }
 
-    protected function allContact(){
+    public function getContact(){
 
     }
 
-    protected function deleteContact(){
+    public function allContact(){
 
     }
 
-    protected function createTemplate(){
+    public function deleteContact(){
 
     }
 
-    protected function updateTemplate(){
+    public function createTemplate(){
 
     }
 
-    protected function allTemplate(){
+    public function updateTemplate(){
 
     }
 
-    protected function deleteTemplate(){
+    public function allTemplate(){
+
+    }
+
+    public function deleteTemplate(){
 
     }
 

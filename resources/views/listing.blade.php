@@ -1,5 +1,7 @@
 @extends('vendor.laravel-eskiz.layouts.app')
 
+@inject('helper', 'Uzsoftic\LaravelEskiz\Helper\Helper')
+
 @section('content')
     <div class="container-fluid">
         <!-- Breadcrumbs-->
@@ -20,6 +22,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Phone</th>
+                            <th>Message</th>
                             <th>User IP</th>
                             <th>Date</th>
                         </tr>
@@ -28,7 +31,8 @@
                         @foreach($listing as $list)
                             <tr>
                                 <td>{{ $list->id }}</td>
-                                <td>{{ $list->phone }}</td>
+                                <td>{{ $helper->clearPhone($list->phone, true) }}</td>
+                                <td>{{ $helper->strLimit($list->text) }}</td>
                                 <td>{{ $list->user_ip }}</td>
                                 <td>{{ $list->created_at }}</td>
                             </tr>
