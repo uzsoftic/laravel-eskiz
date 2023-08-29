@@ -13,27 +13,27 @@
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="SMS Sender">
                 <a class="nav-link" href="{{ route('eskizsms.sender') }}">
-                    <i class="fa fa-fw fa-area-chart"></i>
+                    <i class="fa fa-fw fa-comment"></i>
                     <span class="nav-link-text">SMS Sender</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="SMS Listing">
                 <a class="nav-link" href="{{ route('eskizsms.listing') }}">
-                    <i class="fa fa-fw fa-table"></i>
+                    <i class="fa fa-fw fa-list"></i>
                     <span class="nav-link-text">SMS Listing</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Configuration">
                 <a class="nav-link" href="{{ route('eskizsms.config') }}">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">Configuration</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Back to main">
                 <a class="nav-link" href="/">
-                    <i class="fa fa-fw fa-link"></i>
+                    <i class="fa fa-fw fa-sign-out"></i>
                     <span class="nav-link-text">Back to main</span>
                 </a>
             </li>

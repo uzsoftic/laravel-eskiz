@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github Project Documentation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</head>
+<body>
+<div class="wrapper">
+    <!-- Place this tag where you want the button to render. -->
+    <a class="github-button" href="//github.com/uzsoftic/laravel-eskiz">Star</a>
+    <div class="logo">
+        <div class="circ">
+            <span>{</span><span>}</span>
+        </div>
+        <h1>Laravel Eskiz SMS</h1>
+    </div>
+
+    <div class="screen">
+        <img alt="" src="./github-repo.png">
+    </div>
+
+    <div class="error-note">
+        <p><span>Note :</span> Not recommended for <span>production</span> use as per the current state of the
+            application.</p>
+    </div>
+
+    <div class="documentation-wrapper clear">
+        <aside id="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#usage">Usage</a></li>
+                    <li><a href="#config">Config</a></li>
+                    <li><a href="#change-log">Change log</a></li>
+                    <li><a href="#testing">Testing</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#credits">Credits</a></li>
+                    <li><a href="#license">License</a></li>
+                    <li><a href="#report-bugs">Report Bugs</a></li>
+                    <li><a href="#feature-request">Feature request</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="documentation-content">
+
+            <div align="center">
+                <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" height="100px" alt="Laravel Logo">
+                <h1 align="center">Laravel Eskiz SMS</h1>
+                <br>
+                <b align="center">Using this package, you can send SMS from ESKIZ SMS (eskiz.uz) to phone numbers in Uzbekistan.</b>
+            </div>
+
+            <hr>
+
+            <h1 id="about">About</h1>
+            <div class="documentation-section">
+                <p><a href="https://packagist.org/packages/uzsoftic/laravel-eskiz"><img src="https://img.shields.io/packagist/v/uzsoftic/laravel-eskiz.svg?style=flat-square" alt="Latest Version on Packagist"></a>
+                    <a href="https://packagist.org/packages/uzsoftic/laravel-eskiz"><img src="https://img.shields.io/packagist/dt/uzsoftic/laravel-eskiz.svg?style=flat-square" alt="Total Downloads"></a>
+                    <a href="https://travis-ci.org/uzsoftic/laravel-eskiz"><img src="https://img.shields.io/travis/uzsoftic/laravel-eskiz/master.svg?style=flat-square" alt="Build Status"></a></p>
+                <a class="view-on-github" href="http://github.com/uzsoftic/laravel-eskiz" target="_blank">View
+                    Project on Github</a>
+                <p>Official API docs: <a href="https://documenter.getpostman.com/view/663428/RzfmES4z?version=latest">https://documenter.getpostman.com/view/663428/RzfmES4z?version=latest</a></p>
+                <br>
+                <p><span class="inline-code">Note: Please don't use this application on production for now as data isn't validated.</span>
+
+            </div>
+
+            <hr>
+
+            <h2 id="installation">Installation</h2>
+            <div class="documentation-section">
+                <p>Via Composer</p>
+                <div class="code-block">
+                    <code>
+                        <pre>composer require uzsoftic/laravel-eskiz</pre>
+                    </code>
+                </div>
+                <p>Next, we need to add package service provider to config/app.php inside providers array.</p>
+                <div class="code-block">
+                    <code>
+                        <pre>Uzsoftic\LaravelEskiz\LaravelEskizServiceProvider::class,</pre>
+                    </code>
+                </div>
+                <p>And</p>
+                <div class="code-block">
+                    <code>
+                        <pre>php artisan vendor:publish --provider=Uzsoftic\LaravelEskiz\LaravelEskizServiceProvider</pre>
+                    </code>
+                </div>
+                <p>After installation, we need to migrate command.</p>
+                <div class="code-block">
+                    <code>
+                        <pre>php artisan migrate</pre>
+                    </code>
+                </div>
+                <p>Or</p>
+                <div class="code-block">
+                    <code>
+                        <pre>php artisan migrate --path=/database/migrations/2023_08_26_190625_create_eskiz_config_table.php
+php artisan migrate --path=/database/migrations/2023_08_26_190642_create_eskiz_sms_table.php</pre>
+                    </code>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2 id="usage">Usage</h2>
+            <div class="documentation-section">
+                <p>Configure with admin panel</p>
+                <div class="code-block">
+                    <code>
+                        <pre>example.com/admin/eskizsms/config</pre>
+                    </code>
+                </div>
+                <p>Generate Eskiz SMS Token</p>
+                <pre><code class="lang-shell">php artisan laravel-eskiz:<span class="hljs-keyword">generate</span></code></pre>
+            </div>
+
+            <hr>
+
+            <h2 id="change-log">Change log</h2>
+            <div class="documentation-section">
+                <p>Please see the <a href="changelog.md">changelog</a> for more information on what has changed recently.</p>
+            </div>
+
+            <hr>
+
+            <h2 id="testing">Testing</h2>
+            <div class="documentation-section">
+            <div class="code-block">
+                <code>
+                    <pre>composer test</pre>
+                </code>
+            </div>
+
+            <hr>
+
+            <h2 id="security">Security</h2>
+            <div class="documentation-section">
+            <p>If you discover any security related issues, please email softuzb@gmail.com instead of using the issue tracker.</p>
+            </div>
+
+            <hr>
+
+            <h2 id="credits">Credits</h2>
+            <div class="documentation-section">
+            <ul>
+                <li><a href="https://github.com/uzsoftic">Umarov Kamoliddin</a></li>
+                <li><a href="../../contributors">All Contributors</a></li>
+            </ul>
+            </div>
+
+            <hr>
+
+            <h2 id="license">License</h2>
+            <div class="documentation-section">
+            <p>MIT. Please see the <a href="license.md">license file</a> for more information.</p>
+            <blockquote>
+                <p> Developer: Umarov Kamoliddin! :wink:</p>
+            </blockquote>
+            </div>
+
+            <hr>
+
+
+            <h2 id="report-bugs">Report Bugs</h2>
+            <div class="documentation-section">
+                <p>Bugs and requests, submit them through the project's <a
+                    href="//github.com/uzsoftic/laravel-eskiz/issues/new" target="_blank">issues</a> section
+                </p>
+            </div>
+
+            <hr>
+
+            <h2 id="feature-request">Feature Request</h2>
+            <div class="documentation-section">
+                <p>Create an issue in <a href="//github.com/uzsoftic/laravel-eskiz/issues/new"
+                                         target="_blank">issues</a> section of the repository keeping <span
+                    class="inline-code">[Feature Request]</span> as a prefix in the title.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src="./script.js"></script>
+<!--  Mirror: https://codepen.io/mr_alien/pen/ZpweGj  -->
+
+</body>
+</html>
