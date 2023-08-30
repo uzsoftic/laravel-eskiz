@@ -10,6 +10,16 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
+[![License](https://poser.pugx.org/reliese/laravel/license)](https://packagist.org/packages/reliese/laravel)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![License](https://img.shields.io/github/license/uzsoftic/laravel-eskiz?style=flat-square)
+
+![GitHub contributors](https://img.shields.io/github/contributors/uzsoftic/laravel-eskiz)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/uzsoftic/laravel-eskiz/main)
+![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/uzsoftic/laravel-eskiz)
+
+https://shields.io/badges/git-hub-package-json-dynamic
+
 
 Official API docs: https://documenter.getpostman.com/view/663428/RzfmES4z?version=latest
 
